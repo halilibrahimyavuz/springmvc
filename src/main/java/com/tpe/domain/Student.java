@@ -1,28 +1,32 @@
 package com.tpe.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-     // @Entity
-     // @Table(name="t_student")
+@Entity
+@Table(name="t_student")
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  //id yı kendı otomatık 1 den baslyarak verecek
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message="İsim kısmı boş olamaz")
     private String firstName;
+    @NotEmpty(message="Soy-isim kısmı boş olamaz")
     private String lastName;
-    private Integer grade;    //wrapper clasın default degeri null oldugu ıcın Integer yaparız ,nt dersek default 0 verırdı
+    @NotNull(message="Lütfen puan bilgisini giriniz")
+    private Integer grade;
 
     private LocalDateTime createDate = LocalDateTime.now();
-
 
     public Long getId() {
         return id;
     }
 
-     public String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -60,6 +64,4 @@ public class Student {
                 ", createDate=" + createDate +
                 '}';
     }
-
-
 }

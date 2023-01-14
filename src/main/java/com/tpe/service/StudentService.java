@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface StudentService {
 
-    List<Student> getAllStudents();
+    List<Student> getAllStudent();
 
     Student findStudentById(Long id);
 
@@ -15,8 +15,4 @@ public interface StudentService {
     void updateStudent(Student student);
 
     void deleteStudent(Long id);
-
-
-
-
 }
